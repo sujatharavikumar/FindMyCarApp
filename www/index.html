@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker-->
+    <!--<script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above-->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <!--<script src="js/gmaps.js"></script>-->
+    <!--<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>-->
+    <!--<script src="http://maps.google.com/maps/api/js?key=AIzaSyDnipv3s91HpAmdqW1Bmvxx-ejqCgJNKGQ&sensor=true"></script>-->
+
+
+
+    <!-- Added 3 script tags for GeoFire implementaion. Added on Saturday -->
+    <!-- RSVP -->
+    <!-- <script src="path/to/rsvp.min.js"></script> -->
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+
+    <!-- GeoFire -->
+    <script src="https://cdn.firebase.com/libs/geofire/4.1.1/geofire.min.js"></script>
+
+
+
+  </head>
+  <body ng-app="starter">
+    <!--<div id="map"></div>-->
+    <ion-pane>
+      <ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title">Spot My Car</h1>
+      </ion-header-bar>
+      <ion-content ng-controller="MapController">
+        <div id="map" data-tap-disabled="true"></div>
+        <!-- Commented 3 lines and added 1 line -->
+        <!--<a ng-click="savePosition()" ng-if="!saved" class="button button-icon icon ion-location">Remember this location</a>-->
+
+        <button class="button button-block button-positive" ng-click="savePosition()">
+          <i class = "icon icon icon ion-android-car"></i>
+          Remember My Location
+        </button>
+        <button class="button button-block button-positive" ng-click="findCar()">
+          Spot my Car
+        </button>
+      </ion-content>
+    </ion-pane>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDnipv3s91HpAmdqW1Bmvxx-ejqCgJNKGQ"></script>
+
+  </body>
+</html>
